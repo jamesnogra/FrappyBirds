@@ -38,6 +38,7 @@ public class LogicScript : MonoBehaviour
     public void gameOver()
     {
         gameOverScreen.SetActive(true);
+        Time.timeScale = 0;
         // Check if we need to save this high score
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
         if (playerScore > highScore)
