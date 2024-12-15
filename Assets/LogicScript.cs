@@ -49,4 +49,9 @@ public class LogicScript : MonoBehaviour
         pauseScreen.SetActive(false);
         Time.timeScale = 1;
     }
+
+    public void exitGame()
+    {
+        Application.Quit();
+    }
 }
