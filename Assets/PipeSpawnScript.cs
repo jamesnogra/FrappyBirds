@@ -45,7 +45,7 @@ public class PipeSpawnScript : MonoBehaviour
         float highestPoint = transform.position.y + heightOffset;
         Instantiate(
             pipe,
-            new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0),
+            new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), -4),
             transform.rotation
         );
     }
