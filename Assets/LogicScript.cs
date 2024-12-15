@@ -11,11 +11,13 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject pauseScreen;
     public GameObject pauseButton;
-    public float scoreDivisor = 10;
+    public float scoreDivisor, moveSpeed;
 
     void Start()
     {
         playerScore = 0;
+        moveSpeed = 5;
+        scoreDivisor = 10;
         updateDisplayScoreBoard();
     }
 
@@ -23,6 +25,9 @@ public class LogicScript : MonoBehaviour
     {
         playerScore += scoreToAdd;
         updateDisplayScoreBoard();
+        // Increase speed for every point
+        float moveSpeedToAdd = playerScore / scoreDivisor;
+        moveSpeed += moveSpeedToAdd;
     }
 
     private void updateDisplayScoreBoard()

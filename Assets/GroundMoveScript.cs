@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class PipeMoveScript : MonoBehaviour
+public class GroundMoveScript : MonoBehaviour
 {
+    public float moveSpeed;
     private float deadZone;
     public LogicScript logic;
 
@@ -9,7 +10,8 @@ public class PipeMoveScript : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        deadZone = -45;
+        moveSpeed = 5;
+        deadZone = -65;
     }
 
     // Update is called once per frame
