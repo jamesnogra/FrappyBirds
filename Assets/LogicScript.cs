@@ -7,6 +7,7 @@ public class LogicScript : MonoBehaviour
     public int playerScore;
     public Text scoreText;
     public GameObject gameOverScreen;
+    public float scoreDivisor = 10;
 
     void Start()
     {
