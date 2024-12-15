@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BirdScript : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class BirdScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+        if (!IsPointerOverUI() && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.touchCount > 0))
         {
             if (birdIsAlive)
             {
@@ -31,5 +32,21 @@ public class BirdScript : MonoBehaviour
     {
         logic.gameOver();
         birdIsAlive = false;
+    }
+
+    private bool IsPointerOverUI()
+    {
+        // For mouse and touch input
+        if (EventSystem.current.IsPointerOverGameObject())
+            return true;
+
+        // For touch input (required for mobile devices)
+        if (Input.touchCount > 0)
+        {
+            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                return true;
+        }
+
+        return false;
     }
 }
