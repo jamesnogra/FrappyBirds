@@ -10,6 +10,7 @@ public class LogicScript : MonoBehaviour
     public Text pauseScreenHighScoreText;
     public GameObject gameOverScreen;
     public GameObject pauseScreen;
+    public GameObject pauseButton;
     public float scoreDivisor = 10;
 
     void Start()
@@ -37,7 +38,8 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver()
     {
-        gameOverScreen.SetActive(true);
+        pauseButton.SetActive(false); // Hide pause button
+        gameOverScreen.SetActive(true); // Show game over screen
         Time.timeScale = 0;
         // Check if we need to save this high score
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
@@ -50,7 +52,8 @@ public class LogicScript : MonoBehaviour
 
     public void pauseGame()
     {
-        pauseScreen.SetActive(true);
+        pauseButton.SetActive(false); // Hide pause button
+        pauseScreen.SetActive(true); // Show puase screen
         Time.timeScale = 0;
         pauseScreenCurrentScoreText.text = "Current Score: " + playerScore.ToString();
         // Get current high score
@@ -60,7 +63,8 @@ public class LogicScript : MonoBehaviour
 
     public void continueGame()
     {
-        pauseScreen.SetActive(false);
+        pauseButton.SetActive(true); // Show pause button
+        pauseScreen.SetActive(false); // Hide the pause screen
         Time.timeScale = 1;
     }
 
