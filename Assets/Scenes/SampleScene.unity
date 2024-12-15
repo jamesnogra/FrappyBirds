@@ -1135,7 +1135,7 @@ GameObject:
   - component: {fileID: 1321297252}
   - component: {fileID: 1321297251}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Display Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2010,6 +2010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScore: 1
   scoreText: {fileID: 1321297251}
+  pauseScreenCurrentScoreText: {fileID: 911328964}
+  pauseScreenHighScoreText: {fileID: 1423524829}
   gameOverScreen: {fileID: 1304291650}
   pauseScreen: {fileID: 1761262754}
   scoreDivisor: 10
